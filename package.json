@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/at-maonv/reactjs-nodejs-chat-app",
   "dependencies": {
+    "@craco/craco": "^5.9.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^6.3.0",
@@ -31,5 +32,10 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

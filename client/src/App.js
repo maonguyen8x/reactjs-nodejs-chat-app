@@ -2,6 +2,7 @@ import React, { useState, useCallback,  useEffect } from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import Login from './components/Pages/Login';
 import Register from './components/Pages/Register';
+import ForgotPassword from './components/Pages/ForgotPassword';
 import All from './components/Pages/All';
 import Chat from './components/Pages/Chat';
 import SocialMedia from './components/Pages/SocialMedia';
@@ -14,7 +15,8 @@ import Profile from './components/Pages/Profile';
 import LandingPage from './components/Pages/LandingPage';
 import Error404 from './components/Pages/Error404';
 import axios from 'axios';
-import './styles/base.css'
+import './styles/base.css';
+// import './index.css';
 import { AuthContext } from './components/context/authContext';
 import { connect } from 'mongoose';
 
@@ -93,6 +95,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={LandingPage}></Route>
             <Route path="/login" exact component={Login}></Route>
+            <Route path="/forgot-password" exact component={ForgotPassword}></Route>
             <Route path="/register" component={Register}></Route>
             <PrivateRoute path="/all" component={All}></PrivateRoute>
             <PrivateRoute path="/chat" component={Chat}></PrivateRoute>

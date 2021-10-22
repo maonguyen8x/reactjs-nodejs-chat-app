@@ -1,0 +1,176 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  p {
+    @apply text-xl;
+  }
+  a {
+    @apply text-xl;
+  }
+  span {
+    @apply text-xl text-gray-600 leading-relaxed;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    .h-30vh {
+      height: 30vh !important;
+    }
+    .h-40vh {
+      height: 40vh !important;
+    }
+    .h-50vh {
+      height: 50vh;
+    }
+    .h-65vh {
+      height: 65vh;
+    }
+    .h-70vh {
+      height: 70vh;
+    }
+    .h-75vh {
+      height: 75vh;
+    }
+    .max-h-30vh {
+      max-height: 30vh;
+    }
+    .max-h-40vh {
+      max-height: 40vh;
+    }
+    .max-h-50vh {
+      max-height: 50vh;
+    }
+    .max-h-75vh {
+      max-height: 75vh;
+    }
+    .min-h-40vh {
+      min-height: 40vh;
+    }
+    .min-h-50vh {
+      min-height: 50vh;
+    }
+    .min-h-65vh {
+      min-height: 65vh;
+    }
+    .min-h-75vh {
+      min-height: 75vh;
+    }
+    .text-default {
+      color: #0a5565;
+    }
+    .text-lightBlue-600 {
+      color: #3693f0;
+    }
+    .border-default {
+      border-color: #0a5565;
+    }
+    .bg-parent-tab {
+      background-color: #eef5fa;
+    }
+    .bg-tab-active {
+      background-color: #179ebb;
+    }
+    .border-tab-active {
+      border-color: #179ebb;
+    }
+    .text-tab-active {
+      color: #179ebb;
+    }
+    .bg-default {
+      background-color: #0a5565;
+    }
+    .bg-button-default {
+      background-color: #179ebb;
+    }
+    .bg-menu-active {
+      background-color: #054958;
+    }
+    .bg-location {
+      background: rgba(38, 156, 64, 0.1);
+    }
+    .bg-post {
+      background: #d1f7ff;
+    }
+    .bg-tour {
+      background: #bae4ff;
+    }
+    .bg-food {
+      background: rgba(203, 0, 27, 0.1);
+    }
+    .bg-stay {
+      background: #fff7eb;
+    }
+    .bg-activity {
+      background: rgba(23, 158, 187, 0.1);
+    }
+    .min-h-screen-75 {
+      min-height: 75vh;
+    }
+    .aspect-ratio-1 {
+      aspect-ratio: 1 / 1;
+    }
+    .padding-top {
+      padding-top: 100%;
+    }
+    .uto-login {
+      border-radius: 3.5rem;
+    }
+    .limit-rows {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+  }
+  @variants hover,
+    focus {
+    .text-default {
+      color: #0a5565;
+    }
+    .border-default {
+      border-color: #0a5565;
+    }
+    .bg-parent-tab {
+      background-color: #eef5fa;
+    }
+    .bg-tab-active {
+      background-color: #179ebb;
+    }
+    .bg-default {
+      background-color: #0a5565;
+    }
+    .bg-button-default {
+      background-color: #179ebb;
+    }
+    .bg-menu-active {
+      background-color: #054958;
+    }
+  }
+}
+
+html {
+  font-size: 10px !important;
+}
+
+body {
+  font-family: system-ui, -apple-system,
+    /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

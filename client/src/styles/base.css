@@ -293,6 +293,9 @@ ul{
 .blue-bg {
     background-color: #6363FF;
 }
+.float-right{
+    float: right;
+}
 .blue-shadow{
     box-shadow: 0px 0px 8px 4px #6363FF !important;
 }

@@ -44,16 +44,24 @@ router.post('/register', async (req, res) => {
     const hash = await bcrypt.hash(req.body.password, salt);
     // Create a new user
     try {
-        const newUser = new User({
-            username: req.body.username,
-            name: req.body.name,
-            email: req.body.email,
-            address: req.body.address,
-            password: hash
-        });
+        let email = req.body.email;
+        let user = await User.findOne({ email: email });
 
-        newUser.save();
-        res.status(200).send("Welcome to the Chat App!");
+        if (user) {
+            console.log("Email already exist");
+        }
+        else {
+            const newUser = new User({
+                username: req.body.username,
+                name: req.body.name,
+                email: req.body.email,
+                address: req.body.address,
+                password: hash
+            });
+
+            newUser.save();
+            res.status(200).send("Welcome to the Chat App!");
+        }
 
     } catch (err) {
         // If there are errors: send an error
@@ -108,23 +116,32 @@ router.post('/login', (req, res, next) => {
 // POST
 // Login with user credentials
 //Handling login logic
-router.post('/forgot-password', (req, res, next) => {
-    let email = req.body.email;
+router.post('/forgot-password', async(req, res) => {
+    try {
+        const schema = Joi.object({ email: Joi.string().email().required() });
+        const { error } = schema.validate(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
 
-    if (email) {
-        User.findOne({ "email": email }, function (err, foundUser) {
-            if (!foundUser) {
-                res.json({
-                    success: false,
-                    message: 'Incorrect credentials 1'
-                });
-            }
-        })
-    } else {
-        res.json({
-            success: false,
-            message: 'Authentication failed! Please check the request'
-        });
+        const user = await User.findOne({ email: req.body.email });
+        if(!user)
+            return res.status(400).send("user with given email doesn't exist");
+
+        let token = await Token.findOne({userId: user._id});
+        if(!token) {
+            token = await new Token({
+                userId: user._id,
+                token: crypto.randomBytes(32).toString("hex"),
+            }).save();
+        }
+
+        const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
+        await sendEmail(user.email, "Password reset", link);
+
+        res.send("password reset link sent to your email account");
+    }
+    catch (error) {
+        res.send("An error occured");
+        console.log(error);
     }
 });
 

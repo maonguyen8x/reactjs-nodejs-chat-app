@@ -95,7 +95,6 @@ const Login = (props) => {
               labelStyle="input-field-label"
               errorStyle="error-border"
             />
-
             <Input
               id="password"
               type="password"
@@ -108,7 +107,9 @@ const Login = (props) => {
               labelStyle="input-field-label"
               errorStyle="error-border"
             />
-            <div class="float-right"><Link to="/forgot-password">Forgot password!</Link></div>
+            <div class="float-right">
+              <Link to="/forgot-password">Forgot password!</Link>
+            </div>
             <Button
               type="submit"
               btnStyle="Button margin-xs"

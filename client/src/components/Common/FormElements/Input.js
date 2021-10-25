@@ -83,14 +83,11 @@ const Input = props => {
                     onChange={onChangeHandler}
                     onBlur={onTouchHandler}
                     value={props.value}/>
-
                     <label  
                         htmlFor={props.id}
                         className={[props.labelStyle].join(' ')}>{props.label}
                     </label>
-                    
                     <span className={`${inputState.isTouch && !inputState.isValid && props.errorStyle}`}></span>
-                
             </div>
             {inputState.isTouch && !inputState.isValid && <p className="error-text">{props.errorText}</p>}
         </React.Fragment>

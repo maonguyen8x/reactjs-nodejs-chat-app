@@ -53,7 +53,7 @@ router.post('/register', async (req, res) => {
         });
 
         newUser.save();
-        res.status(200).send("Welcome to the club!");
+        res.status(200).send("Welcome to the Chat App!");
 
     } catch (err) {
         // If there are errors: send an error
@@ -96,6 +96,28 @@ router.post('/login', (req, res, next) => {
                         });
                     }
                 })
+            }
+        })
+    } else {
+        res.json({
+            success: false,
+            message: 'Authentication failed! Please check the request'
+        });
+    }
+});
+// POST
+// Login with user credentials
+//Handling login logic
+router.post('/forgot-password', (req, res, next) => {
+    let email = req.body.email;
+
+    if (email) {
+        User.findOne({ "email": email }, function (err, foundUser) {
+            if (!foundUser) {
+                res.json({
+                    success: false,
+                    message: 'Incorrect credentials 1'
+                });
             }
         })
     } else {

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import Input from "../Common/FormElements/Input";
 import Button from "../Common/Button/Button";
 import { VALIDATOR_EMAIL } from "../util/validator";
+import Popup from "../Common/SuccessErrorPopup/Popup";
 import axios from "axios";
 import { useForm } from "../hooks/formHook";
 import { AuthContext } from "../context/authContext";
@@ -37,19 +38,30 @@ const ForgotPassword = (props) => {
     };
 
     axios
-      .post("/api/users/login", data, config)
+      .post("/api/users/forgot-password", data, config)
       .then((foundUser) => {
         if (foundUser.data.success === false) {
           setError(true);
         }
         if (foundUser.data.foundUser) {
           auth.login(foundUser.data.foundUser);
-          props.history.push("/all");
-        } else {
           props.history.push("/login");
         }
       })
       .catch((err) => console.log(err));
+  };
+
+  let errorMessage =
+    error === true ? (
+      <Popup clearPopupState={() => clearPopuState()}>
+        <h3>Reset email failed</h3>
+        <p>We cannot find your email</p>
+      </Popup>
+    ) : null;
+
+  // Clear Popup state function for when the Popup is closed
+  const clearPopuState = () => {
+    setError(null);
   };
 
   return (
@@ -78,6 +90,7 @@ const ForgotPassword = (props) => {
             >
               Send reset link
             </Button>
+            {errorMessage}
           </form>
         </div>
         <div className="col blue-bg full-height padding-32 mobile-hide"></div>

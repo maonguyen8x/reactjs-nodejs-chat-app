@@ -20,14 +20,12 @@ const Profile = (props) => {
                     <div className="row shadow">
                         <div className="col padding-24 shadow">
                             <MainNavbar />
-
                             <div className="row space-between">
                                 <h1 className="margin-sm">Profile</h1>
                                 <div className="text-center cursor-pointer margin-sm" onClick={() => auth.logout()}>
                                     <img  className="svg-inline--fa fa-sign-out-alt fa-w-16" src={logoutSVG}/>
                                     <p>Logout</p>
                                 </div>
-                               
                             </div>
                         </div>
                     </div>

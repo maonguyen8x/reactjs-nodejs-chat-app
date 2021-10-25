@@ -28,7 +28,6 @@ const ForgotPassword = (props) => {
 
     const data = {
       email: formState.inputs.email.value,
-      password: formState.inputs.password.value,
     };
     const config = {
       withCredentials: true,

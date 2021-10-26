@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const Joi = require('joi');
+const crypto = require('crypto');
+const sendEmail = require("../../client/src/components/util/email/sendEmail");
 
 //User Model
 const User = require('../../models/User');
+const Token = require('../../models/Token');
 const Chat = require('../../models/Chat');
 
 const isLoggedIn = require('../../middleware/isLoggedIn');
@@ -48,7 +52,10 @@ router.post('/register', async (req, res) => {
         let user = await User.findOne({ email: email });
 
         if (user) {
-            console.log("Email already exist");
+            res.json({
+                success: false,
+                message: 'Email already exist'
+            });
         }
         else {
             const newUser = new User({
@@ -124,7 +131,10 @@ router.post('/forgot-password', async(req, res) => {
 
         const user = await User.findOne({ email: req.body.email });
         if(!user)
-            return res.status(400).send("user with given email doesn't exist");
+            res.json({
+                success: false,
+                message: 'We cannot found email'
+            });
 
         let token = await Token.findOne({userId: user._id});
         if(!token) {
@@ -133,7 +143,6 @@ router.post('/forgot-password', async(req, res) => {
                 token: crypto.randomBytes(32).toString("hex"),
             }).save();
         }
-
         const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
         await sendEmail(user.email, "Password reset", link);
 

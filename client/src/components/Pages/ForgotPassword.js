@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../Common/FormElements/Input";
 import Button from "../Common/Button/Button";
 import { VALIDATOR_EMAIL } from "../util/validator";

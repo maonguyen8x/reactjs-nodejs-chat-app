@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 //Define schema of chats
 var tokenSchema = new mongoose.Schema({
   userId: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "user",
   },

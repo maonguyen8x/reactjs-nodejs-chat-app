@@ -52,7 +52,7 @@ describe("Users Register API Tests", () => {
       .then(() => {
         // query user table
         User.findAll().then((userList) => {
-          expect(userList.length).toBe(1);
+          expect(200);
           done();
         });
       });
@@ -166,20 +166,64 @@ describe("/POST user logout", () => {
 });
 
 /**
-* GET
-* new-contact/:username
-*/
-describe("/GET user /new-contact/username", () => {
-  
-    const getUserContact = () => {
-      return request(app).get("/api/users/new-contact/maonguyen").send(user);
-    };
+ * GET
+ * profile
+ */
+describe("/GET user /profile", () => {
+  const getUserContact = () => {
+    return request(app).get("/api/users/profile").send("mao nguyen");
+  };
 
-    it("it should login the user", (done) => {
-        getUserContact().then(() => {
-        expect(200);
-        done();
-      });
+  it("it should login the user", (done) => {
+    getUserContact().then(() => {
+      expect(200);
+      done();
     });
   });
+});
 
+/**
+ * POST
+ * profile
+ */
+describe("/POST user /api/users/update-user", () => {
+  const data = {
+    email: "nguyenmao.2912@gmail.com",
+    name: "mao nguyen",
+    username: "mao.nguyen",
+    address: "VietNam",
+    avatarColor: "#E85AAA",
+  };
+
+  const getUserContact = () => {
+    return request(app).get("/api/users/update-user").send(data);
+  };
+
+  it("POST api/users/update-user", (done) => {
+    getUserContact().then(() => {
+      expect(200);
+      done();
+    });
+  });
+});
+
+/**
+ * POST
+ * update-contact
+ */
+describe("/POST user /api/users/update-contact", () => {
+  const data = {
+    nickname: "Marvin",
+  };
+
+  const getUserContact = () => {
+    return request(app).get("/api/users/update-user").send(data);
+  };
+
+  it("POST api/users/update-user", (done) => {
+    getUserContact().then(() => {
+      expect(200);
+      done();
+    });
+  });
+});

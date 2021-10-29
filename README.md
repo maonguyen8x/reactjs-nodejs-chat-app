@@ -2,16 +2,16 @@
 Chat application developed using MongoDB, Express.js, React.js and Node.js.
 
 # 🚀 Author
--👋 Hi, I’m Marvin Nguyễn. I'm living in VietNam.
--👀 I’m interested in NodeJS, ReactJS, PHP, C#, TypeScript,MongoDB.
--🌱 I’m currently learning AI, Blockchain, NodeJS, ReactJS, TypeScript, MongoDB
--💞️ I’m looking to collaborate on AI, Blockchain, NodeJS, ReactJS, TypeScript, MongoDB. I'm also building an outsourcing startup company about AI, Blockchain,NodeJS, ReactJS,TypeScript.
--📫 How to reach me?
+- 👋 Hi, I’m Marvin Nguyễn. I'm living in VietNam.
+- 👀 I’m interested in NodeJS, ReactJS, PHP, C#, TypeScript,MongoDB.
+- 🌱 I’m currently learning AI, Blockchain, NodeJS, ReactJS, TypeScript, MongoDB
+- 💞️ I’m looking to collaborate on AI, Blockchain, NodeJS, ReactJS, TypeScript, MongoDB. I'm also building an outsourcing startup company about AI, Blockchain,NodeJS, ReactJS,TypeScript.
+- 📫 How to reach me?
     - https://github.com/at-maonv
--👋 Contact me.
+- 👋 Contact me.
     - Skype: bestlife2912
     - Email: nguyenmao.2912@gmail.com
--💞️ Thank you!
+- 💞️ Thank you!
 
 # React Chat App
 Chat application developed using MongoDB, Express.js, React.js and Node.js.
